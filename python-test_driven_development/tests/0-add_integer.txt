@@ -1,0 +1,1 @@
+SAlam kod qeydi demeli bu kodda ne etdik bizim kod mutleg integer ve ya float olmalidr eger no float or int dirse error verir sonra nem nese
