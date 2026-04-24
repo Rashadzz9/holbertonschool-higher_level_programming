@@ -15,11 +15,12 @@ def text_indentation(text):
         print(text[i], end="")
 
         if text[i] in ".?:":
-            print()
-            print()
-            i += 1
+            # yalnız son deyilsə newline ver
+            if i != len(text) - 1:
+                print()
+                print()
 
-            # skip spaces after punctuation
+            i += 1
             while i < len(text) and text[i] == " ":
                 i += 1
             continue
