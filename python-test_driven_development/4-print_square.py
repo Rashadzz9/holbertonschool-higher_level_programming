@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""burada iste bir eded olur ve bir #simvolu onu 4 e vuranda 4 dene eyni simvol yansai olacag onu isteyir bizden"""
+"""burada 4 deded diyes print"""
 
 
 def print_square(size):
