@@ -10,8 +10,7 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    special_chars = [".", "?", ":"]
-    
+    special_chars = [".", "?", ":"]    
     c = 0
     while c < len(text) and text[c] == ' ':
         c += 1
