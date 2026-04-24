@@ -12,9 +12,10 @@ Fine:
 <BLANKLINE>
 thanks.
 
+>>> text_indentation("Holberton  School")
+Holberton  School
+
 >>> text_indentation(123)
 Traceback (most recent call last):
     ...
 TypeError: text must be a string
-
->>> text_indentation("")
