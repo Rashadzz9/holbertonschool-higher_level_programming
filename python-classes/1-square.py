@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""bele bir kod"""
+"""This module defines a Square class."""
 
 
 class Square:
-   """salam bueda class ne"""
+    """This class defines a square."""
 
-   def __init__(self, size):
-      """yene eyni"""
-      self.s__size = size
+    def __init__(self, size):
+        """Initialize square with size."""
+        self.__size = size
