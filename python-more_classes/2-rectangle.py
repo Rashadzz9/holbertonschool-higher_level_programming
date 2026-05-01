@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""This code defines width and height"""
+"""This module defines a rectangle class"""
 
 
 class Rectangle:
     """Defines a rectangle class"""
 
     def __init__(self, width=0, height=0):
-        """Initializes the rectangle with width and height"""
+        """Initializes width and height"""
         self.width = width
         self.height = height
 
@@ -39,11 +39,11 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """perimetri sorry sehvdi return edir"""
+        """Returns the rectangle area"""
         return self.width * self.height
 
     def perimeter(self):
-        """perimetri geri cevirir elave 0"""
+        """Returns the rectangle perimeter"""
         if self.width == 0 or self.height == 0:
-           return 0
+            return 0
         return 2 * (self.width + self.height)
