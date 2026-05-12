@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This script lists all states from the database hbtn_0e_0_usa.
-The results are sorted in ascending order by states.id.
+This script lists all states from the database hbtn_0e_0_usa..
 """
 import MySQLdb
 import sys
@@ -17,8 +16,8 @@ if __name__ == "__main__":
     )
     cur = db.cursor()
     cur.execute("SELECT * FROM states ORDER BY id ASC")
-    query_rows = cur.fetchall()
-    for row in query_rows:
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
     cur.close()
     db.close()
