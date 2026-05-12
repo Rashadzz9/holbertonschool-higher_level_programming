@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""in this code we lists only upper N words"""
+"""This script lists all states with a name starting with N"""
 import MySQLdb
 import sys
 
