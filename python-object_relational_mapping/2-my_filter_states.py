@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""that takes in an argument and displays all values in the states where name matches the arg"""
+"""That script takes in an argument and displays all values in the states where name matches the arg"""
 import MySQLdb
 import sys
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
