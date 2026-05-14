@@ -16,7 +16,6 @@ if __name__ == "__main__":
         db=sys.argv[3]
     )
 
-    state_name = sys.argv[4]
     cursor = db.cursor()
 
     cursor.execute("SELECT * FROM states WHERE name = BINARY '{}'\
