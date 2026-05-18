@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-This script lists all cities from the database hbtn_0e_4_usa.
-It connects to a MySQL server and uses a JOIN operation.
+This script lists aIt con a MySQL server and uses a JOIN operation.
 """
 import sys
 import MySQLdb
