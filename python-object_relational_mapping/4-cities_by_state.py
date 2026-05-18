@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-This script lists aIt con a MySQL server and uses a JOIN operation.
+This script lists all cities from the database hbtn_0e_4_usa.
+It connects to a MySQL server and uses a JOIN operation.
 """
 import sys
 import MySQLdb
@@ -17,8 +18,13 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # Sorğunu tam olaraq tək sətirdə yazırıq, heç bir gizli boşluq qalmır
-    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities INNER JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC")
+    # Mötərizə daxilində sətirləri bölsək, PEP 8 xətası vermir
+    query = (
+        "SELECT cities.id, cities.name, states.name "
+        "FROM cities INNER JOIN states ON cities.state_id = states.id "
+        "ORDER BY cities.id ASC"
+    )
+    cursor.execute(query)
 
     rows = cursor.fetchall()
 
