@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Wait, do you remember the previous task make a new"""
+
 import sys
 import MySQLdb
-
 
 if __name__ == "__main__":
     db = MySQLdb.connect(
