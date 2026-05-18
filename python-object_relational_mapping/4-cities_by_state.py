@@ -18,11 +18,8 @@ if __name__ == "__main__":
 
     cursor = db.cursor()
 
-    # Sorğunu tək sətirdə yazırıq ki, gizli boşluq xətaları yaranmasın
-    query = "SELECT cities.id, cities.name, states.name FROM cities JOIN " \
-            "states ON cities.state_id = states.id ORDER BY cities.id ASC"
-    
-    cursor.execute(query)
+    # Sorğunu tam olaraq tək sətirdə yazırıq, heç bir gizli boşluq qalmır
+    cursor.execute("SELECT cities.id, cities.name, states.name FROM cities INNER JOIN states ON cities.state_id = states.id ORDER BY cities.id ASC")
 
     rows = cursor.fetchall()
 
