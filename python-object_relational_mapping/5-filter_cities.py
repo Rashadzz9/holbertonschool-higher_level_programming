@@ -1,56 +1,28 @@
 #!/usr/bin/python3
-"""
-    Script that lists all states from the database.
-"""
-import MySQLdb
-import sys
-
-
-def connectDb(user, password, db):
-    """
-        Get connection with the database.
-        Args:
-            user (str): Username of the user.
-            password (str): Password of the user.
-            db (str): Database to retrieve.
-        Return:
-            Connection database.
-    """
-    conn = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=user,
-        passwd=password,
-        db=db,
-        charset="utf8"
-    )
-    return conn
-
+"""takes in the name of a state as
+an argument and lists all cities of that state"""
 
 if __name__ == "__main__":
-    user = sys.argv[1]
-    password = sys.argv[2]
-    db = sys.argv[3]
-    arg = sys.argv[4]
+    import MySQLdb
+    import sys
 
-    conn = connectDb(user, password, db)
-    cur = conn.cursor()
-
-    query = f"""
-        SELECT cities.name
-        FROM cities
-        JOIN
-            states ON states.id = cities.state_id
-        WHERE
-            states.name = %s
-        ORDER BY cities.id ASC
-    """
-    cur.execute(query, (arg,))
-
-    query_rows = cur.fetchall()
-    results = []
-    for row in query_rows:
-        results.append(row[0])
-    print(", ".join(results))
-    cur.close()
-    conn.close()
+    db = MySQLdb.connect(host='localhost',
+                         port=3306,
+                         user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3]
+                         )
+    cursor = db.cursor()
+    cursor.execute(
+        """SELECT cities.name FROM cities
+        JOIN states ON cities.state_id = states.id
+        WHERE states.name = %s ORDER BY cities.id ASC""", (sys.argv[4],)
+    )
+    cities = cursor.fetchall()
+    for i in range(0, len(cities)):
+        print(cities[i][0], end="")
+        if i != len(cities) - 1:
+            print(", ", end="")
+    print()
+    cursor.close()
+    db.close()

@@ -1,27 +1,25 @@
 #!/usr/bin/python3
-"""Script that prints the State object with the name passed as argument."""
-import sys
-from model_state import Base, State
-from sqlalchemy import (create_engine)
-from sqlalchemy.orm import Session
+"""prints the first State object"""
 
+import sys
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from model_state import Base, State
 
 if __name__ == "__main__":
-    arg = sys.argv[4]
     engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
             sys.argv[1],
             sys.argv[2],
             sys.argv[3]
-        ),
-        pool_pre_ping=True
+        )
     )
-    Base.metadata.create_all(engine)
-
-    session = Session(engine)
-    q = session.query(State).where(State.name.ilike(arg))
-    state = q.first()
-    if state:
-        print(state.id)
+    Session = sessionmaker(bind=engine)
+    s = Session()
+    n = sys.argv[4]
+    st = s.query(State).filter(State.name == n).order_by(State.id).first()
+    if st is not None:
+        print(st.id)
     else:
         print("Not found")
+    session.close()
